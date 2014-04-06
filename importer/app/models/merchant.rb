@@ -10,4 +10,9 @@ class Merchant < ActiveRecord::Base
   # address (String)
   #   a contact address for the merchant.
   validate :address, presence: true
+
+  ##
+  # items ([Item])
+  #   a collection of Items that the merchant has sold.
+  has_many :items
 end
