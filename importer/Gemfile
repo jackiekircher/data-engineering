@@ -17,6 +17,9 @@ gem 'debugger', group: [:development, :test]
 
 # Add rspec to both development and test groups for generators
 gem 'rspec-rails', group: [:development, :test]
+group :test do
+  gem 'database_cleaner'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
