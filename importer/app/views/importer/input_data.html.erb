@@ -1,7 +1,17 @@
 <h1>Import Data</h1>
 
+<% if !@errors.empty? %>
+  <div id="file-errors" class="form-errors">
+    <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_tag({}, multipart: true) do %>
   <%= label_tag(:csv_file, "csv file") %>
-  <%= file_field_tag(:csv_file) %>
+  <%= file_field_tag(:csv_file, required: true) %>
   <%= submit_tag("import") %>
 <% end %>
