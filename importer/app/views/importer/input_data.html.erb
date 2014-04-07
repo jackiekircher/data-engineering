@@ -1,0 +1,7 @@
+<h1>Import Data</h1>
+
+<%= form_tag({}, multipart: true) do %>
+  <%= label_tag(:csv_file, "csv file") %>
+  <%= file_field_tag(:csv_file) %>
+  <%= submit_tag("import") %>
+<% end %>

@@ -18,6 +18,7 @@ gem 'debugger', group: [:development, :test]
 # Add rspec to both development and test groups for generators
 gem 'rspec-rails', group: [:development, :test]
 group :test do
+  gem 'capybara'
   gem 'database_cleaner'
 end
 

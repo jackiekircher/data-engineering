@@ -3,7 +3,7 @@ require 'csv'
 class CSVImporter
 
   def initialize(file)
-    @data  = CSV.parse(file, col_sep: "\t", headers: true)
+    @data  = CSV.parse(file.read, col_sep: "\t", headers: true)
     @total = 0
   end
 

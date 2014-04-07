@@ -1,9 +1,10 @@
 Importer::Application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+
+  get  'import' => 'importer#input_data',  as: 'input'
+  post 'import' => 'importer#import_data', as: 'import'
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'importer#input_data'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
