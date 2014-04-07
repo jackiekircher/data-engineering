@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406234100) do
+ActiveRecord::Schema.define(version: 20140406235949) do
 
   create_table "items", force: true do |t|
     t.string   "description"
@@ -40,5 +40,17 @@ ActiveRecord::Schema.define(version: 20140406234100) do
   end
 
   add_index "purchasers", ["name"], name: "index_purchasers_on_name"
+
+  create_table "transactions", force: true do |t|
+    t.integer  "item_id"
+    t.integer  "purchaser_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "transactions", ["item_id"], name: "index_transactions_on_item_id"
+  add_index "transactions", ["purchaser_id", "item_id"], name: "index_transactions_on_purchaser_id_and_item_id"
+  add_index "transactions", ["purchaser_id"], name: "index_transactions_on_purchaser_id"
 
 end
