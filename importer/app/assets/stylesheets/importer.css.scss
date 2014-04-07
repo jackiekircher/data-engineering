@@ -1,3 +1,106 @@
 // Place all the styles related to the importer controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-color:   #544AA1;
+$secondary-color: #97A14A;
+$error-color:     #FC7988;
+
+.wrapper {
+  max-width: 400px;
+  margin: 10em auto;
+}
+
+h1 {
+  color: white;
+  font-size:  32px;
+  text-align: center;
+  background: $primary-color;
+  padding: 14px;
+
+  -webkit-border-top-left-radius: 48px;
+  -webkit-border-top-right-radius: 48px;
+  -moz-border-radius-topleft: 48px;
+  -moz-border-radius-topright: 48px;
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+}
+
+.form-errors {
+  color: $error-color;
+  font-size: 14px;
+  max-width: 300px;
+  margin: 1em auto 2em;
+  padding: 1em 2em;
+
+  border: solid 2px $error-color
+}
+
+form {
+  text-align: center;
+  margin-top: 1em;
+}
+
+label {
+  margin-right: 0.5em;
+}
+
+input {
+  font-size: 14px;
+  padding: 4px;
+  border-bottom: solid 1px $primary-color;
+}
+
+.submit {
+
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  background-color: $secondary-color;
+
+  display: block;
+  margin: 1em auto;
+  padding: 0.3em 1.2em;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 0.2em solid $secondary-color;
+
+  &:hover {
+    background-color: white;
+    color: $secondary-color;
+  }
+}
+
+p {
+  margin: 1em;
+  text-align: center;
+}
+
+a {
+  color: $primary-color;
+  &:hover {
+    color: black;
+  }
+}
+
+span.highlight {
+  color: $primary-color;
+  font-size: 24px;
+  display: block;
+  margin: 4px;
+}
+
+footer {
+  margin-top: 2em;
+  padding: 0 0.5em;
+  clear: both;
+  display: block;
+
+  p {
+    color: $primary-color;
+    font-size: 10px;
+  }
+
+}

@@ -1,1 +1,11 @@
-Transaction totals: $<%= @importer.total %>
+<h1>importer</h1>
+
+<p>file uploaded successfully!</p>
+<p>
+  total amount gross revenue:
+  <span class="highlight">$<%= number_with_precision(@importer.total, precision: 2) %></span>
+</p>
+
+<p>
+<%= link_to("import another file", input_url) %>
+</p>

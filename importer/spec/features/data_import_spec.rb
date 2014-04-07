@@ -8,8 +8,8 @@ describe "importing data" do
     attach_file('csv_file', File.join(Rails.root,
                                       'spec', 'data',
                                       'example_input.tab'))
-    click_on 'import'
+    click_on 'import data'
 
-    expect(page).to have_content('$95.0')
+    expect(page).to have_content('$95.00')
   end
 end

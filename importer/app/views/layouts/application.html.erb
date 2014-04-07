@@ -8,7 +8,20 @@
 </head>
 <body>
 
-<%= yield %>
+<section class="wrapper">
+
+  <%= yield %>
+
+  <footer>
+    <p class="left">
+      livingsocial data-engineering challenge
+    </p>
+    <p class="right">
+      solution by <%= link_to("jackiekircher", "http://github.com/jackiekircher") %>
+    </p>
+  </footer>
+</section>
+
 
 </body>
 </html>
