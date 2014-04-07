@@ -4,16 +4,6 @@ describe CSVImporter do
 
   describe "persist" do
 
-    let(:purchaser) do
-      Purchaser.create(name: "Snake Plissken")
-    end
-
-    let(:merchant) do
-    end
-
-    let(:item) do
-    end
-
     let(:data_row) do
       content = <<END
 purchaser name\titem description\titem price\tpurchase count\tmerchant address\tmerchant name
@@ -102,5 +92,22 @@ END
       transaction = purchaser.transactions.find_by(item: item)
       expect(transaction.quantity).to eq 2
     end
+
+    it "keeps a running total of transactions" do
+      prices     = (0..2).map{ rand(100) + 1 }
+      quantities = (0..2).map{ rand(10) + 1 }
+      content    = <<END
+purchaser name\titem description\titem price\tpurchase count\tmerchant address\tmerchant name
+Snake Plissken\t$10 off $20 of food\t#{prices[0]}\t#{quantities[0]}\t987 Fake St\tBob's Pizza
+Snake Plissken\t$10 off $20 of food\t#{prices[1]}\t#{quantities[1]}\t987 Fake St\tBob's Pizza
+Snake Plissken\t$10 off $20 of food\t#{prices[2]}\t#{quantities[2]}\t987 Fake St\tBob's Pizza
+END
+      new_data = StringIO.new(content)
+
+      importer = CSVImporter.new(new_data)
+      importer.persist
+      expect(importer.total).to eq Transaction.all.map(&:total_price).reduce(:+)
+    end
+
   end
 end
